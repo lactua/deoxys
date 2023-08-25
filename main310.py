@@ -861,11 +861,11 @@ class Obfuscator:
             self._code = ast.unparse(SoftStringObfuscator().visit(self.tree))
         step(self._code)
         
-        #self._code = ast.unparse(FunctionObfuscator().visit(self.tree))
-        #step(self._code)
+        self._code = ast.unparse(FunctionObfuscator().visit(self.tree))
+        step(self._code)
 
-        #self._code = ast.unparse(ClassObfuscator().visit(self.tree))
-        #step(self._code)
+        self._code = ast.unparse(ClassObfuscator().visit(self.tree))
+        step(self._code)
 
         # layer 2
 
@@ -875,8 +875,8 @@ class Obfuscator:
         self._code = ast.unparse(constant_obfuscator.constantClassDef(constant_obfuscator.visit(self.tree)))
         step(self._code)
 
-        #self._code = ast.unparse(ClassObfuscator().visit(self.tree))
-        #step(self._code)
+        self._code = ast.unparse(ClassObfuscator().visit(self.tree))
+        step(self._code)
 
         self._code = ast.unparse(AttributeObfuscator().visit(self.tree))
         step(self._code)
@@ -888,15 +888,15 @@ class Obfuscator:
 
         self._code = minify(self._code)
 
-        #self._code = ast.unparse(CodeCompiler().visit(self.tree))
-        #step(self._code)
+        self._code = ast.unparse(CodeCompiler().visit(self.tree))
+        step(self._code)
 
         constant_obfuscator = ConstantObfuscator()
         self._code = ast.unparse(constant_obfuscator.constantClassDef(constant_obfuscator.visit(self.tree)))
         step(self._code)
 
-        #self._code = ast.unparse(ClassObfuscator().visit(self.tree))
-        #step(self._code)
+        self._code = ast.unparse(ClassObfuscator().visit(self.tree))
+        step(self._code)
 
         self._code = ast.unparse(BytesCompressor().visit(self.tree))
         step(self._code)
